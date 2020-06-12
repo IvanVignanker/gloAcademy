@@ -10,10 +10,13 @@ let amount1 = +prompt('Во сколько это обойдется?', 7500);
 let expenses2 = prompt('Введите обязательную статью расходов', 'food');
 let amount2 = +prompt('Во сколько это обойдется?', 2000);
 
+function showTypeOf (data){
+    console.log(data, typeof (data));
+};
 
 function getExpensesMonth (a, b){
     return a + b;
-}
+};
 let expensesMonth = getExpensesMonth(amount1, amount2);
 
 
@@ -30,26 +33,21 @@ let budgetDay = Math.floor(accumulatedMonth / 30);
 function getStatusIncome(){
     switch (true){
         case budgetDay > 1200 :
-            console.log('У вас высокий уровень дохода');
-            break;
+            return ('У вас высокий уровень дохода');
         case 1200 > budgetDay > 600 :
-            console.log('У вас средний уровень дохода');
-            break;
+            return ('У вас средний уровень дохода');
         case budgetDay < 600 :
-            console.log('К сожалению у вас уровень дохода ниже среднего');
-            break;
+            return ('К сожалению у вас уровень дохода ниже среднего');
         case budgetDay < 0 :
-            console.log('Что то пошло не так');
-            break;
+            return ('Что то пошло не так');
         case budgetDay === 0 :
-            console.log('Вы не умрете от голода');
-            break;
+            return ('Вы не умрете от голода');
     };
 }
 
-console.log(typeof(money));
-console.log(typeof(income ));
-console.log(typeof(deposit));
+showTypeOf(money);
+showTypeOf(income);
+showTypeOf(deposit);
 console.log(addExpenses.length);
 console.log('Цель будет достигнута за ' + targetMonth + ' месяцев');
 console.log(budgetDay);

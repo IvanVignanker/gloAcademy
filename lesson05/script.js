@@ -10,6 +10,10 @@ addExpenses = prompt('Перечислите возможные расходы �
 deposit = confirm('Есть ли у вас депозит в банке?'),
 mission = 500000;
 
+function showTypeOf (data){
+    console.log(data, typeof (data));
+};
+
 function start(){
     do {
         money = prompt('Ваш месячный доход?', 15000);
@@ -30,10 +34,9 @@ function getExpensesMonth (){
         expenses[i] = prompt('Введите обязательную статью расходов');
        do {
            rashod = +prompt('Во сколько это обойдется?');
-            sum += rashod;
        }
-
-        while (!isNumber(rashod));       
+        while (!isNumber(rashod));   
+        sum += rashod;    
     };
     console.log(sum);
     console.log(expenses);
@@ -56,26 +59,20 @@ let budgetDay = Math.floor(accumulatedMonth / 30);
 function getStatusIncome(){
     switch (true){
         case budgetDay > 1200 :
-            console.log('У вас высокий уровень дохода');
-            break;
+            return ('У вас высокий уровень дохода');
         case 1200 > budgetDay > 600 :
-            console.log('У вас средний уровень дохода');
-            break;
+            return ('У вас средний уровень дохода');
         case budgetDay < 600 :
-            console.log('К сожалению у вас уровень дохода ниже среднего');
-            break;
+            return ('К сожалению у вас уровень дохода ниже среднего');
         case budgetDay < 0 :
-            console.log('Что то пошло не так');
-            break;
+            return ('Что то пошло не так');
         case budgetDay === 0 :
-            console.log('Вы не умрете от голода');
-            break;
+            return ('Вы не умрете от голода');
     };
 };
-
-console.log(typeof(money));
-console.log(typeof(income ));
-console.log(typeof(deposit));
+showTypeOf(money);
+showTypeOf(income);
+showTypeOf(deposit);
 console.log(addExpenses.length);
 if (targetMonth >= 0){
 console.log('Цель будет достигнута за ' + targetMonth + ' месяцев');
